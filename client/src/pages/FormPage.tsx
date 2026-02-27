@@ -8,10 +8,12 @@ import { Spinner } from '../components/atoms'
 import { EventNameField } from '../features/event-form/components/EventNameField'
 import { AddressField } from '../features/event-form/components/AddressField/AddressField'
 import { DateField } from '../features/event-form/components/DateField'
+import { useNavigate } from 'react-router-dom'
 
 export function FormPage() {
   const { submitEvent } = useEvent()
   const [submitting, setSubmitting] = useState(false)
+  const navigate = useNavigate()
 
   const {
     register,
@@ -36,6 +38,7 @@ export function FormPage() {
     //Delay is used to mock API call on submit
     await new Promise((resolve) => setTimeout(resolve, 5000))
     submitEvent(data)
+    navigate('/success')
   }
 
   return (
