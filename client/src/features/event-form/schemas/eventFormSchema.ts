@@ -4,7 +4,6 @@ export const eventFormSchema = z.object({
   eventName: z
     .string()
     .min(1, 'Event name is required')
-    .min(3, 'Must be at least 3 characters')
     .max(80, 'Maximum 80 characters')
     .transform((v) => v.trim()),
   address: z.string().min(1, 'Select a venue from the dropdown — typing alone is not enough'),

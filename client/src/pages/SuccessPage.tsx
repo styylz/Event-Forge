@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useEvent } from '../contexts/EventContext'
 import { Logo } from '../components/common'
-import { Countdown } from '../components/countdown'
+import { Countdown } from '../features/event-success/components/Countdown'
 
 export function SuccessPage() {
   const { eventData, reset } = useEvent()
@@ -16,11 +16,6 @@ export function SuccessPage() {
 
   if (!eventData) return null
 
-  const handleReset = () => {
-    reset()
-    navigate('/form')
-  }
-
   const formattedDate = new Date(eventData.date + 'T00:00:00').toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -28,43 +23,29 @@ export function SuccessPage() {
     day: 'numeric',
   })
 
+  const handleReset = () => {
+    reset()
+    navigate('/form')
+  }
+
   return (
-    <div
-      className="min-h-screen flex flex-col items-center"
-      style={{
-        background: '#070a12',
-        backgroundImage:
-          'radial-gradient(ellipse 100% 55% at 50% -5%, rgba(74,222,128,.06) 0%, transparent 65%)',
-      }}
-    >
+    <div className="min-h-screen flex flex-col items-center bg-[#070a12] bg-[radial-gradient(ellipse_100%_55%_at_50%_-5%,rgba(74,222,128,.06)_0%,transparent_65%)]">
       <div className="flex-1" />
       <Logo />
       <div className="h-6" />
       <div className="flex flex-col z-10 w-full max-w-lg gap-8">
-        <div className="anim-scale-in text-center flex flex-col gap-1.5">
+        <div className="anim-scale-in text-center">
           <h1 className="font-display text-4xl text-slate-100 mt-4 mb-2">You're all set!</h1>
           <p className="text-sm text-slate-400">Your event ticket is ready below.</p>
         </div>
         <div
-          className="anim-scale-in rounded-2xl overflow-hidden"
-          style={{
-            background: '#0d1117',
-            border: '1px solid #1a2230',
-            animationDelay: '80ms',
-            boxShadow: '0 32px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.025)',
-          }}
+          className="anim-scale-in rounded-2xl overflow-hidden bg-[#0d1117] border border-[#1a2230] shadow-[0_32px_80px_rgba(0,0,0,.55),0_0_0_1px_rgba(255,255,255,.025)]"
+          style={{ animationDelay: '80ms' }}
         >
-          <p
-            className="mb-4 text-center  rounded-full text-xs font-bold tracking-widest uppercase text-green-400"
-            style={{
-              background: 'rgba(74,222,128,.09)',
-              border: '1px solid rgba(74,222,128,.22)',
-            }}
-          >
+          <p className="mb-4 text-center rounded-full text-xs font-bold tracking-widest uppercase text-green-400 bg-green-400/[.09] border border-green-400/[.22]">
             ✓ Registration Confirmed
           </p>
-
-          <div style={{ padding: '26px 36px 22px' }}>
+          <div className="px-9 pt-[26px] pb-[22px]">
             <p className="text-xs font-bold tracking-widest text-slate-600 uppercase mb-1.5">
               Event
             </p>
@@ -90,7 +71,7 @@ export function SuccessPage() {
               </div>
             </div>
           </div>
-          <div style={{ padding: '22px 36px' }}>
+          <div className="px-9 py-[22px]">
             <p className="text-xs font-bold tracking-widest text-amber-400 uppercase mb-4">
               ◉ Countdown to Event Day
             </p>
@@ -99,13 +80,12 @@ export function SuccessPage() {
         </div>
         <button
           onClick={handleReset}
-          className="ghost-btn h-10 w-full mt-5 rounded-xl text-sm font-semibold text-slate-500 transition-all"
-          style={{ border: '1.5px solid #1a2230' }}
+          className="anim-scale-in h-12 w-full mt-5 rounded-xl text-sm font-semibold text-slate-500 border-[1.5px] border-[#1a2230]  hover:text-slate-100"
         >
-          ← Register Another Event
+          ← Forge Another Event
         </button>
       </div>
-      <div className="flex-2" />
+      <div className="flex-[2]" />
     </div>
   )
 }

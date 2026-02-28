@@ -20,7 +20,7 @@ export function FormPage() {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid },
     trigger,
   } = useForm<EventFormData>({
     resolver: zodResolver(eventFormSchema),
@@ -31,7 +31,7 @@ export function FormPage() {
   const formData = watch()
 
   const isFieldValid = (fieldName: keyof EventFormData, value: string) =>
-    !errors[fieldName] && value?.length > 0 && isDirty
+    !errors[fieldName] && value?.length > 0
 
   const onSubmit = async (data: EventFormData) => {
     setSubmitting(true)
@@ -84,7 +84,7 @@ export function FormPage() {
               register={register}
             />
           </div>
-          <div className="flex gap-3 mt-8 p-6">
+          <div className="flex gap-3">
             <button
               type="submit"
               disabled={submitting || !isValid}
@@ -104,10 +104,10 @@ export function FormPage() {
               {submitting ? (
                 <>
                   <Spinner />
-                  <span>Registering…</span>
+                  <span>Forging...</span>
                 </>
               ) : (
-                'Register Event 🎉'
+                'Forge Event 🎉'
               )}
             </button>
           </div>
