@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { ErrorDot } from '../atoms'
+import { ErrorDot } from '../../../components'
 
 type Props = {
   label: string

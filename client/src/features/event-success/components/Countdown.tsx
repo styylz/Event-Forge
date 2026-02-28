@@ -1,4 +1,4 @@
-import { useCountdown, type TimeUnit } from '../../hooks/useCountdown'
+import { useCountdown, type TimeUnit } from '../hooks/useCountdown'
 import { CountdownUnit } from './CountdownUnit'
 
 type Props = { dateStr: string | null }

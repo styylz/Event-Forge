@@ -1,8 +1,8 @@
-import { Heading } from '../../../../components/field/Heading'
-import { Field } from '../../../../components/field/Field'
 import { AddressAutocomplete } from './AddressAutocomplete'
 import type { UseFormRegister, UseFormTrigger, UseFormSetValue } from 'react-hook-form'
 import type { EventFormData } from '../../schemas'
+import { Field } from '../Field'
+import { Heading } from '../Heading'
 
 type Props = {
   register: UseFormRegister<EventFormData>
