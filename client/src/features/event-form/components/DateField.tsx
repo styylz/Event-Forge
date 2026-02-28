@@ -1,6 +1,6 @@
 import { CheckCircle } from '../../../components/atoms'
-import { Field } from '../../../components/fields/Field'
-import { Heading } from '../../../components/fields/Heading'
+import { Field } from '../../../components/field/Field'
+import { Heading } from '../../../components/field/Heading'
 import type { UseFormRegister } from 'react-hook-form'
 import type { EventFormData } from '../schemas'
 
