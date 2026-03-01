@@ -35,8 +35,8 @@ export function FormPage() {
 
   const onSubmit = async (data: EventFormData) => {
     setSubmitting(true)
-    //Delay is used to mock API call on submit
-    await new Promise((resolve) => setTimeout(resolve, 5000))
+    //Delay is used to mock API call on submit just to show spinner
+    await new Promise((resolve) => setTimeout(resolve, 3000))
     submitEvent(data)
     navigate('/success')
   }

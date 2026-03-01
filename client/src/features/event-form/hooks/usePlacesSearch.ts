@@ -52,7 +52,7 @@ export const usePlacesSearch = () => {
           if (!res.ok) throw new Error('Failed to fetch places')
           return res.json()
         })
-        .then((result) => setSuggestions(result.features ?? []))
+        .then((result) => setSuggestions(result.features))
         .finally(() => setLoading(false))
     }, 300)
 
